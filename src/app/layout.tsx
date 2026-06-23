@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Sidebar from "@/components/Sidebar";
+import { getSidebarData } from "@/lib/wiki";
 
 export const metadata: Metadata = {
   title: "Blue Wave Dive — 수중촬영 위키",
@@ -11,9 +13,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const sidebarData = getSidebarData();
+
   return (
     <html lang="ko">
-      <body className="bg-white text-gray-900">{children}</body>
+      <body className="bg-white text-gray-900">
+        <div className="flex min-h-screen">
+          <Sidebar data={sidebarData} />
+          <div className="flex-1 min-w-0">{children}</div>
+        </div>
+      </body>
     </html>
   );
 }
