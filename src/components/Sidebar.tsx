@@ -55,6 +55,22 @@ export default function Sidebar({ data }: { data: SidebarCategory[] }) {
         </div>
       </Link>
 
+      <button
+        onClick={() => {
+          setMobileOpen(false);
+          document.dispatchEvent(
+            new KeyboardEvent("keydown", { key: "k", ctrlKey: true })
+          );
+        }}
+        className="flex items-center gap-2 w-full mx-2 mb-4 px-3 py-2 text-sm text-gray-500 bg-gray-50 rounded-lg border border-gray-200 hover:border-gray-300"
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <span>검색...</span>
+        <kbd className="ml-auto text-xs text-gray-400 border border-gray-200 rounded px-1 py-0.5">⌘K</kbd>
+      </button>
+
       {data.map((cat) => (
         <div key={cat.category} className="mb-2">
           <button

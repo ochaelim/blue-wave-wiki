@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
+import SearchDialog from "@/components/SearchDialog";
 import { getSidebarData } from "@/lib/wiki";
+import { buildSearchIndex } from "@/lib/search";
 
 export const metadata: Metadata = {
   title: "Blue Wave Dive — 수중촬영 위키",
@@ -14,6 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const sidebarData = getSidebarData();
+  const searchIndex = buildSearchIndex();
 
   return (
     <html lang="ko">
@@ -22,6 +25,7 @@ export default function RootLayout({
           <Sidebar data={sidebarData} />
           <div className="flex-1 min-w-0">{children}</div>
         </div>
+        <SearchDialog index={searchIndex} />
       </body>
     </html>
   );
