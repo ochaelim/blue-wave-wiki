@@ -9,3 +9,36 @@ body {
     "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
+
+/* Wiki link styles */
+.wiki-link {
+  color: #2563eb;
+  text-decoration: none;
+}
+.wiki-link:hover {
+  text-decoration: underline;
+}
+.wiki-link-missing {
+  color: #ef4444;
+}
+
+/* Source section (## 출처) */
+.source-section {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+.source-section h2 {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.source-section a {
+  color: #9ca3af;
+}
+.source-section a:hover {
+  color: #6b7280;
+}
